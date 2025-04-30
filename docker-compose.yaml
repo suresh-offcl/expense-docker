@@ -1,0 +1,25 @@
+version: "3"
+networks:
+  expense:
+volumes:
+  mysql:
+services:
+  mysql:
+    image: sureshkhanishk/mysql:v1
+    container_name: mysql 
+    volumes:
+    - mysql:/var/lib/mysql
+
+  backend:
+    image: sureshkhanishk/backend:v1
+    container_name: backend 
+    depends_on:
+      - mysql
+
+  frontend:
+    image: sureshkhanishk/frontend:v1
+    container_name: frontend 
+    ports:
+      - 80:80
+    depends_on:
+      - backend

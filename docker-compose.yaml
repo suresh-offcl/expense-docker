@@ -18,9 +18,9 @@ services:
       - mysql
 
   frontend:
-    image: sureshkhanishk/frontend:v1
+    image: sureshkhanishk/frontend:v1 
     container_name: frontend 
     ports:
       - 80:80
     depends_on:
-      - backend
+      - backend 
